@@ -1,7 +1,9 @@
-@extends('layouts.plantilla')
+@extends('adminlte::page')
 
-@section('container')
-<a href="Vacuna/create" class="btn btn-primaty">Crear Vacuna</a>
+@section('title', 'Dashboard')
+
+@section('content_header')
+<a href="Vacuna/create" class="btn btn-primaty">Las Vacuna</a>
 <table class="table table-striped mt-4">
   <thead>
     <tr>
@@ -17,23 +19,25 @@
     </tr>
   </thead>
   <tbody>
-    @foreach ($vacuna as $art)
-    <tr>
-        <td>{{ $art->id }}</td>
-        <td>{{ $art->name }}</td>
-        <td>{{ $art->lavoratorio }}</td>
-        <td>{{ $art->cadena_frio }}</td>
-        <td>{{ $art->dosis }}</td>
-        <td>{{ $art->vector_viral }}</td>
-        <td>{{ $art->inactiva }}</td>
-        <td>{{ $art->vector_viral }}</td>
-        <td>{{ $art->sub_unidad_proteica }}</td>
-        <td>
-            <a class="btn btn-info">Editar</a>
-            <a class="btn btn-danger">Borrar</a>
-        </td>
-    </tr>
-    @endforeach
+    @if (is_array($vacuna ?? ''))
+        @foreach ($vacuna ?? '' as $art)
+        <tr>
+            <td>{{ $art->id }}</td>
+            <td>{{ $art->name }}</td>
+            <td>{{ $art->lavoratorio }}</td>
+            <td>{{ $art->cadena_frio }}</td>
+            <td>{{ $art->dosis }}</td>
+            <td>{{ $art->vector_viral }}</td>
+            <td>{{ $art->inactiva }}</td>
+            <td>{{ $art->vector_viral }}</td>
+            <td>{{ $art->sub_unidad_proteica }}</td>
+            <td>
+                <a class="btn btn-info">Editar</a>
+                <a class="btn btn-danger">Borrar</a>
+            </td>
+        </tr>
+        @endforeach
+    @endif 
   </tbody>
 </table>
-@endsection
+@stop

@@ -14,8 +14,8 @@ class VacunaController extends Controller
      */
     public function index()
     {
-        $vacuna = Vacuna::all();
-        return view('Vacuna.index')->with('vacuna',$vacuna);
+        $vacuna = Vacuna::find(1);
+        return view('vacuna.index')->with('vacuna', $vacuna);
     }
 
     /**
@@ -25,7 +25,7 @@ class VacunaController extends Controller
      */
     public function create()
     {
-        return view('Vacuna.create');
+        return view('vacuna.create');
     }
 
     /**
@@ -47,7 +47,7 @@ class VacunaController extends Controller
         $vacuna->sub_unidad_proteica = $request->get('sub_unidad_proteica');
         $vacuna->save();
 
-        return redirect('/vacuna');
+        return redirect('vacuna');
     }
 
     /**
@@ -58,7 +58,8 @@ class VacunaController extends Controller
      */
     public function show($id)
     {
-        //
+        $vacuna = Vacuna::find(1);
+        return view('vacuna.index')->with('vacuna', $vacuna);
     }
 
     /**

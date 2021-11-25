@@ -3,6 +3,7 @@
 @section('title', 'Dashboard')
 
 @section('content_header')
+<a href="Vacuna/create" class="btn btn-primaty">Crear Paciente</a>
 <table class="table table-striped mt-4">
   <thead>
     <tr>

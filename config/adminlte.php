@@ -258,6 +258,21 @@ return [
                 ],
             ]
         ],
+        [
+            'text'        => 'Vacunas',
+            'icon'        => 'far fa-fw fa-file',
+            'label_color' => 'success',
+            'submenu' => [
+                [
+                    'text' => 'Registros',
+                    'url'  => 'vacuna/index',
+                ],
+                [
+                    'text' => 'Crear',
+                    'url'  => 'vacuna/create',
+                ],
+            ]
+        ],
         ['header' => 'account_settings'],
         [
             'text' => 'profile',

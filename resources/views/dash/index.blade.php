@@ -10,21 +10,29 @@
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.6.0/chart.min.js"></script>
 
-<canvas id="myChart1" width="400" height="200"></canvas>
-<br>
-<canvas id="myChart2" width="400" height="200"></canvas>
-<br>
-<canvas id="myChart3" width="400" height="200"></canvas>
+<divc class="card" id="formHeader">
+    <divc class="row" id="formDetail">
+        <div class="form-group  col-md-5">
+            <canvas id="myChart2" width="400" height="200"></canvas>
+        </div>
+        <div class="form-group  col-md-6">
+            <canvas id="myChart3" width="400" height="200"></canvas>
+        </div>
+        <div class="form-group  col-md-5">
+            <canvas id="myChart1" width="1000" height="200"></canvas>
+        </div>
+    </div>
+</div>
 
 <script>
 const ctx = document.getElementById('myChart1');
 const myChart1 = new Chart(ctx, {
     type: 'line',
     data: {
-        labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+        labels: ['Matagalpa', 'Rio Blanco', 'Esquipulas ', 'Matiguas', 'Muy Muy'],
         datasets: [{
-            label: '# of Votes',
-            data: [12, 19, 3, 5, 2, 3],
+            label: '# Ciudades',
+            data: [20, 15, 27, 8, 2, 10],
             backgroundColor: [
                 'rgba(255, 99, 132, 0.2)',
                 'rgba(54, 162, 235, 0.2)',
@@ -58,10 +66,10 @@ const ctx1 = document.getElementById('myChart2');
 const myChart2 = new Chart(ctx1, {
     type: 'bar',
     data: {
-        labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+        labels: ['10...20', '21...39', 'mayores de 40'],
         datasets: [{
-            label: '# of Votes',
-            data: [12, 19, 3, 5, 2, 3],
+            label: '# Edades',
+            data: [10, 13, 22, 5],
             backgroundColor: [
                 'rgba(255, 99, 132, 0.2)',
                 'rgba(54, 162, 235, 0.2)',
@@ -95,10 +103,10 @@ const ctx2 = document.getElementById('myChart3');
 const myChart3 = new Chart(ctx2, {
     type: 'doughnut',
     data: {
-        labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+        labels: ['Astraseneca', 'Sputnik', 'Moderna', 'Phaser', 'Sputnik-lite'],
         datasets: [{
-            label: '# of Votes',
-            data: [12, 19, 3, 5, 2, 3],
+            label: '# Vacunas',
+            data: [20, 9, 2, 8, 11],
             backgroundColor: [
                 'rgba(255, 99, 132, 0.2)',
                 'rgba(54, 162, 235, 0.2)',
