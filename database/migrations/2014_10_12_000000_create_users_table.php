@@ -15,9 +15,9 @@ class CreateUsersTable extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->string('last_name');
-            $table->date('date_birth');
+            $table->string('name')->nullable();
+            $table->string('last_name')->nullable();
+            $table->date('date_birth')->nullable();
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
@@ -26,7 +26,7 @@ class CreateUsersTable extends Migration
             $table->string('profile_photo_path', 2048)->nullable();
             $table->timestamps();
 
-            $table->foreignId('municipio_id')->references('id')->on('municipios');
+            $table->foreignId('municipio_id')->references('id')->on('municipios')->nullable();
         });
     }
 
