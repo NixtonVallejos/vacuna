@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\DashController;
+use App\Http\Controllers\RegistroController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -21,4 +23,6 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dash', function () {
     return view('dash.index');
 })->name('dash');
 
-Route::resource('registro', 'App\Http\Controllers\RegistroController');
+// Route::resource('Registro/create', 'App\Http\Controllers\RegistroController');
+Route::resource('registro', RegistroController::class);
+Route::resource('dash', DashController::class);

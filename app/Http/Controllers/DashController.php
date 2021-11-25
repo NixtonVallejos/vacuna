@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class RegistroController extends Controller
+class DashController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,7 +13,7 @@ class RegistroController extends Controller
      */
     public function index()
     {
-        return view('registro/index');
+        return view('dash.index');
     }
 
     /**
@@ -23,7 +23,7 @@ class RegistroController extends Controller
      */
     public function create()
     {
-        return view('registro/create');
+        //
     }
 
     /**
@@ -45,7 +45,7 @@ class RegistroController extends Controller
      */
     public function show($id)
     {
-        return view('registro/index');
+        return view('dash.index');
     }
 
     /**
