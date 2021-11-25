@@ -17,8 +17,8 @@ Route::get('/', function () {
     return view('auth.login');
 });
 
-Route::resource('registro', 'App\Http\Controllers\RegistroController');
+Route::middleware(['auth:sanctum', 'verified'])->get('/dash', function () {
+    return view('dash.index');
+})->name('dash');
 
-Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
-    return view('dashboard');
-})->name('dashboard');
+Route::resource('registro', 'App\Http\Controllers\RegistroController');
