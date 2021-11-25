@@ -3,6 +3,9 @@
 @section('title', 'Dashboard')
 
 @section('content_header')
+<form action="/registro/{{$registro->id}}" method="POST">
+  @csrf    
+  @method('PUT')
 <div class="container">
     <div class="row">
       <div class="col-lg-10 col-xl-9 mx-auto">
@@ -50,4 +53,5 @@
       </div>
     </div>
   </div>
+</form>
 @stop

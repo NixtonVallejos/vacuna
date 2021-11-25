@@ -6,29 +6,33 @@
 <table class="table table-light table-striped mt-4">
     <thead>
         <tr>
-            <th scope="col">Cedula</th>
-            <th scope="col">Nombre</th>
-            <th scope="col">Apellido</th>
-            <th scope="col">Enfermera</th>
-            <th scope="col">Puesto</th>
-            <th scope="col">Vacuna</th>
-            <th scope="col">Docis</th>
-            <th scope="col">Fecha</th>
-            <th scope="col">Siguiente Docis</th>
+            <th scope="col">#</th>
+            <th scope="col">Tiempo</th>
+            <th scope="col">id paciente</th>
+            <th scope="col">id enfermero</th>
+            <th scope="col">id vacuna</th>
+            <th scope="col">id centro</th>
         </tr>
     </thead>
     <tbody>
-    <tr>
-                <td>441-prueba-100A</td>
-                <td>Javier</td>
-                <td>Lumbi</td>
-                <td>EnfemeraPrueba</td>
-                <td>INSS</td>
-                <td>Astrazeneca</td>
-                <td>1er</td>
-                <td>10-NOV-2021</td>
-                <td>UNICA</td>
-            </tr>
+        @foreach ($registro as $reg)
+        <tr>
+            <td> {{ $reg->id }}</td>
+            <td> {{ $reg->administrada_a }}</td>
+            <td> {{ $reg->paciente_id }}</td>
+            <td> {{ $reg->enfermero_id }}</td>
+            <td> {{ $reg->vacuna_id }}</td>
+            <td> {{ $reg->centro_id }}</td>
+            <td>
+                <form action="{{route ('registro.destroy', $reg->id)}}" method="POST">
+                    <a href="/registro/{{ $reg->id }}/edit" class="btn btn-info">Editar</a>
+                    @csrf    
+                    @method('DELETE')
+                    <button type="submit" class="btn btn-danger">Delete</button>
+                </form>
+            </td>
+        </tr>
+        @endforeach
     </tbody>
 </table>
 @stop

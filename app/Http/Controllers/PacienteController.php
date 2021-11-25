@@ -15,7 +15,7 @@ class PacienteController extends Controller
     public function index()
     {
         $paciente = Paciente::all();
-        return view('Paciente.index')->with('paciente',$paciente);
+        return view('paciente.index')->with('paciente',$paciente);
     }
 
     /**
@@ -25,7 +25,7 @@ class PacienteController extends Controller
      */
     public function create()
     {
-        return view('Paciente.create');
+        return view('paciente.create');
     }
 
     /**

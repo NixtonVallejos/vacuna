@@ -14,7 +14,8 @@ class RegistroController extends Controller
      */
     public function index()
     {
-        return view('registro/index');
+        $registro = Registro::all();
+        return view('registro/index')->with('registro',$registro);
     }
 
     /**

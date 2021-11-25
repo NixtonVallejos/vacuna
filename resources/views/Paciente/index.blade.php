@@ -1,7 +1,8 @@
-@extends('layouts.plantilla')
+@extends('adminlte::page')
 
-@section('container')
-<a href="Vacuna/create" class="btn btn-primaty">Crear Paciente</a>
+@section('title', 'Dashboard')
+
+@section('content_header')
 <table class="table table-striped mt-4">
   <thead>
     <tr>
@@ -21,11 +22,15 @@
         <td>{{ $pac->birth }}</td>
         <td>{{ $pac->municipio_id }}</td>
         <td>
-            <a class="btn btn-info">Editar</a>
-            <a class="btn btn-danger">Borrar</a>
+          <form action="{{ route('paciente.destroy',$pac->id) }}" method="POST">
+            <a href="/paciente/{{ $pac->id }}/edit" class="btn btn-info">Editar</a>
+              @csrf
+              @method('DELETE')
+              <button type="submit" class="btn btn-danger">Delete</button>
+          </form>
         </td>
     </tr>
     @endforeach
   </tbody>
 </table>
-@endsection
+@stop
