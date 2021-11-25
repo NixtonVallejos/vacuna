@@ -16,7 +16,7 @@ class CreateRegistrosTable extends Migration
         Schema::create('registros', function (Blueprint $table) {
             $table->id();
             $table->date('administrada_a');
-            $table->foreignId('user_id')->references('id')->on('users');
+            $table->foreignId('paciente_id')->references('id')->on('pacientes');
             $table->foreignId('enfermero_id')->references('id')->on('enfermeros');
             $table->foreignId('vacuna_id')->references('id')->on('vacunas');
             $table->foreignId('centro_id')->references('id')->on('centro_saluds');
