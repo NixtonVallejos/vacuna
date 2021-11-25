@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Registro;
 use Illuminate\Http\Request;
 
 class RegistroController extends Controller
@@ -34,7 +35,15 @@ class RegistroController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $registro = new Registro();
+        $registro->administrada_a = $request->get('administrada_a');
+        $registro->paciente_id = $request->get('paciente_id');
+        $registro->enfermero_id = $request->get('enfermero_id');
+        $registro->vacuna_id = $request->get('vacuna_id');
+        $registro->centro_id = $request->get('centro_id');
+        $registro->save();
+
+        return redirect('/registro');
     }
 
     /**
@@ -56,7 +65,8 @@ class RegistroController extends Controller
      */
     public function edit($id)
     {
-        //
+        $registro = Registro::find($id);
+        return view('registro.edit')->with('registro',$registro);
     }
 
     /**
@@ -68,7 +78,15 @@ class RegistroController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $registro = Registro::find($id);
+        $registro->administrada_a = $request->get('administrada_a');
+        $registro->paciente_id = $request->get('paciente_id');
+        $registro->enfermero_id = $request->get('enfermero_id');
+        $registro->vacuna_id = $request->get('vacuna_id');
+        $registro->centro_id = $request->get('centro_id');
+        $registro->save();
+
+        return redirect('/registro');
     }
 
     /**
@@ -79,6 +97,8 @@ class RegistroController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $registro = Registro::find($id);
+        $registro->delete();
+        return redirect('/registro');
     }
 }

@@ -14,7 +14,8 @@ class PacienteController extends Controller
      */
     public function index()
     {
-        //
+        $paciente = Paciente::all();
+        return view('Paciente.index')->with('paciente',$paciente);
     }
 
     /**
@@ -42,7 +43,7 @@ class PacienteController extends Controller
         $paciente->municipio_id = $request->get('municipio_id');
         $paciente->save();
 
-        return redirect('/Paciente');
+        return redirect('/paciente');
     }
 
     /**
@@ -65,7 +66,7 @@ class PacienteController extends Controller
     public function edit($id)
     {
         $paciente = Paciente::find($id);
-        return view('Paciente.edit')->with('Paciente',$paciente);
+        return view('paciente.edit')->with('paciente',$paciente);
     }
 
     /**
@@ -84,7 +85,7 @@ class PacienteController extends Controller
         $paciente->municipio_id = $request->get('municipio_id');
         $paciente->save();
 
-        return redirect('/Paciente');
+        return redirect('/paciente');
     }
 
     /**
@@ -97,6 +98,6 @@ class PacienteController extends Controller
     {
         $paciente = Paciente::find($id);
         $paciente->delete();
-        return redirect('/Paciente');
+        return redirect('/paciente');
     }
 }
