@@ -24,7 +24,7 @@ class VacunaController extends Controller
      */
     public function create()
     {
-        //
+        return view('Vacuna.create');
     }
 
     /**
@@ -35,7 +35,18 @@ class VacunaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $vacuna = new Vacuna();
+        $vacuna->name = $request->get('name');
+        $vacuna->lavoratorio = $request->get('lavoratorio');
+        $vacuna->cadena_frio = $request->get('cadena_frio');
+        $vacuna->dosis = $request->get('dosis');
+        $vacuna->inactiva = $request->get('inactiva');
+        $vacuna->vector_viral = $request->get('vector_viral');
+        $vacuna->nucleicos = $request->get('nucleicos');
+        $vacuna->sub_unidad_proteica = $request->get('sub_unidad_proteica');
+        $vacuna->save();
+
+        return redirect('/Vacuna');
     }
 
     /**
@@ -57,7 +68,8 @@ class VacunaController extends Controller
      */
     public function edit($id)
     {
-        //
+        $vacuna = Vacuna::find($id);
+        return view('Vacuna.edit')->with('Vacuna',$vacuna);
     }
 
     /**
@@ -69,7 +81,18 @@ class VacunaController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $vacuna = Vacuna::find($id);
+        $vacuna->name = $request->get('name');
+        $vacuna->lavoratorio = $request->get('lavoratorio');
+        $vacuna->cadena_frio = $request->get('cadena_frio');
+        $vacuna->dosis = $request->get('dosis');
+        $vacuna->inactiva = $request->get('inactiva');
+        $vacuna->vector_viral = $request->get('vector_viral');
+        $vacuna->nucleicos = $request->get('nucleicos');
+        $vacuna->sub_unidad_proteica = $request->get('sub_unidad_proteica');
+        $vacuna->save();
+
+        return redirect('/Vacuna');
     }
 
     /**
@@ -80,6 +103,8 @@ class VacunaController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $vacuna = Vacuna::find($id);
+        $vacuna->delete();
+        return redirect('/Vacuna');
     }
 }
